@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1073866866771",
+    "project_id": "infohive-63e1f",
+    "storage_bucket": "infohive-63e1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073866866771:android:ae8093ba4e54b595e986a6",
+        "android_client_info": {
+          "package_name": "com.example.infohive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073866866771-tkrtg565r25a7up80iu8gqce2di15d1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKkJmNO5Wv3RZDgzWN80xhP9Xtix4ECbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073866866771-tkrtg565r25a7up80iu8gqce2di15d1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
