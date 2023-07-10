@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infohive/services/auth/bloc/auth_bloc.dart';
 import 'package:infohive/services/auth/bloc/auth_event.dart';
 import 'package:infohive/services/auth/bloc/auth_state.dart';
+import 'package:infohive/services/auth/firebase_auth_provider.dart';
 
 import 'helpers/loading/loading_screen.dart';
 
@@ -11,7 +12,7 @@ void main() {
 
   runApp(MaterialApp(
       home: BlocProvider<AuthBloc>(
-    create: (context) => AuthBloc(),
+    create: (context) => AuthBloc(FirebaseAuthProvider()),
     child: const HomePage(),
   )));
 }
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<AuthBloc>().add(AuthInitializeEvent());
+    context.read<AuthBloc>().add(const AuthInitializeEvent());
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state.isLoading) {
