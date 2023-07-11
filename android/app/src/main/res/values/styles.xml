@@ -16,24 +16,3 @@
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
 </resources>
-
-<resources>
-    <!-- Light Theme -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
-        <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryDark">@color/primary_dark_color</item>
-        <item name="colorAccent">@color/accent_color</item>
-        <item name="android:windowBackground">@color/background_color</item>
-        <item name="android:textColorPrimary">@color/text_color</item>
-    </style>
-
-    <!-- Dark Theme -->
-    <style name="AppTheme.Dark" parent="Theme.MaterialComponents">
-        <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryDark">@color/primary_dark_color</item>
-        <item name="colorAccent">@color/accent_color</item>
-        <item name="android:windowBackground">@color/background_color</item>
-        <item name="android:textColorPrimary">@color/text_color</item>
-    </style>
-</resources>
-
