@@ -4,17 +4,20 @@ import 'package:infohive/services/auth/bloc/auth_bloc.dart';
 import 'package:infohive/services/auth/bloc/auth_event.dart';
 import 'package:infohive/services/auth/bloc/auth_state.dart';
 import 'package:infohive/services/auth/firebase_auth_provider.dart';
+import 'package:infohive/views/articles/articles_view.dart';
 
 import 'helpers/loading/loading_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(MaterialApp(
+  runApp(
+    MaterialApp(
       home: BlocProvider<AuthBloc>(
-    create: (context) => AuthBloc(FirebaseAuthProvider()),
-    child: const HomePage(),
-  )));
+        create: (context) => AuthBloc(FirebaseAuthProvider()),
+        child: const HomePage(),
+      ),
+    ),
+  );
 }
 
 class HomePage extends StatelessWidget {
@@ -34,7 +37,9 @@ class HomePage extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is AuthRegisteringState) {}
-        if (state is AuthLoggedInState) {}
+        if (state is AuthLoggedInState) {
+          return const ArticlesView();
+        }
         if (state is AuthNeedsVerificationState) {}
         if (state is AuthLoggedOutState) {}
         if (state is AuthForgotPasswordState) {}
