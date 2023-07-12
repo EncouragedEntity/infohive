@@ -5,6 +5,7 @@ import 'package:infohive/services/auth/bloc/auth_event.dart';
 import 'package:infohive/services/auth/bloc/auth_state.dart';
 import 'package:infohive/services/auth/firebase_auth_provider.dart';
 import 'package:infohive/views/articles/articles_view.dart';
+import 'package:infohive/views/auth/login_view.dart';
 
 import 'helpers/loading/loading_screen.dart';
 
@@ -41,7 +42,9 @@ class HomePage extends StatelessWidget {
           return const ArticlesView();
         }
         if (state is AuthNeedsVerificationState) {}
-        if (state is AuthLoggedOutState) {}
+        if (state is AuthLoggedOutState) {
+          return const LoginView();
+        }
         if (state is AuthForgotPasswordState) {}
         return const Scaffold(
           body: Center(
