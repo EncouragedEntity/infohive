@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infohive/widgets/login/forgot_password_label.dart';
 
+import '../../services/auth/auth_exception.dart';
 import '../../services/auth/bloc/auth_bloc.dart';
+import '../../services/auth/bloc/auth_event.dart';
 import '../../services/auth/bloc/auth_state.dart';
 
 import '../../widgets/login/login_widgets.dart';
@@ -37,7 +39,47 @@ class _LoginViewState extends State<LoginView> {
     final height = MediaQuery.of(context).size.height;
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        //TODO bloc listener
+        if (state is AuthLoggedOutState) {
+          if (state.exception is EmptyMailException) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Email cannot be empty"),
+              ),
+            );
+          }
+
+          if (state.exception is EmptyPasswordException) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Password cannot be empty"),
+              ),
+            );
+          }
+
+          if (state.exception is UserNotFoundException) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content:
+                    Text("There is no user with that email. Try to create one"),
+              ),
+            );
+          }
+          if (state.exception is WrongPasswordException) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Wrong password. Try again"),
+              ),
+            );
+          }
+
+          if (state.exception is GenericException) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Authentication error"),
+              ),
+            );
+          }
+        }
       },
       child: Scaffold(
           body: SizedBox(
@@ -67,17 +109,24 @@ class _LoginViewState extends State<LoginView> {
                     submitButton(
                       context,
                       onTap: () {
-                        //TODO Submit tap handling
+                        final email = _emailController.text;
+                        final password = _passwordController.text;
+                        context.read<AuthBloc>().add(AuthLogInEvent(
+                              email,
+                              password,
+                            ));
                       },
                     ),
                     forgotPasswordLabel(
                       onTap: () {
-                        //TODO Forgot password tap hadnling
+                        context.read<AuthBloc>().add(const AuthForgotPasswordEvent());
                       },
                     ),
                     SizedBox(height: height * .055),
                     createAccountLabel(onTap: () {
-                      //TODO Create account tap handling
+                      context
+                          .read<AuthBloc>()
+                          .add(const AuthShouldRegisterEvent());
                     }),
                   ],
                 ),
