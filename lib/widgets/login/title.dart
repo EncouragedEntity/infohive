@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../constants/colors.dart';
 Widget title() {
     return RichText(
       textAlign: TextAlign.center,
@@ -7,7 +9,7 @@ Widget title() {
           style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w700,
-              color: Color(0xffe46b10)),
+              color: secondary),
           children: [
             TextSpan(
               text: 'hi',
@@ -15,7 +17,7 @@ Widget title() {
             ),
             TextSpan(
               text: 've',
-              style: TextStyle(color: Color(0xffe46b10), fontSize: 30),
+              style: TextStyle(color: secondary, fontSize: 30),
             ),
           ]),
     );

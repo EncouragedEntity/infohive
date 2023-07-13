@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/colors.dart';
+
 Widget submitButton(BuildContext context, {required VoidCallback onTap}) {
   return GestureDetector(
     onTap: onTap, // Invoke the onTap callback
@@ -18,10 +20,12 @@ Widget submitButton(BuildContext context, {required VoidCallback onTap}) {
           ),
         ],
         gradient: const LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: [Color(0xfffbb448), Color(0xfff7892b)],
-        ),
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [
+              primary,
+              secondary,
+            ]),
       ),
       child: const Text(
         'Login',

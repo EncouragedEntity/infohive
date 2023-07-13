@@ -1,6 +1,8 @@
 
   import 'package:flutter/material.dart';
 
+import '../../constants/colors.dart';
+
 Widget createAccountLabel({required VoidCallback onTap}) {
     return InkWell(
       onTap: onTap,
@@ -21,7 +23,7 @@ Widget createAccountLabel({required VoidCallback onTap}) {
             Text(
               'Register',
               style: TextStyle(
-                  color: Color(0xfff79c4f),
+                  color: secondary,
                   fontSize: 13,
                   fontWeight: FontWeight.w600),
             ),
