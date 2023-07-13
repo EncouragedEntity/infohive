@@ -119,7 +119,9 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     forgotPasswordLabel(
                       onTap: () {
-                        context.read<AuthBloc>().add(const AuthForgotPasswordEvent());
+                        context
+                            .read<AuthBloc>()
+                            .add(const AuthForgotPasswordEvent());
                       },
                     ),
                     SizedBox(height: height * .055),

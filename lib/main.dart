@@ -48,7 +48,9 @@ class HomePage extends StatelessWidget {
         if (state is AuthLoggedOutState) {
           return const LoginView();
         }
-        if (state is AuthForgotPasswordState) {}
+        if (state is AuthForgotPasswordState) {
+          //TODO go to forgotPasswordView
+        }
         return const Scaffold(
           body: Center(
             child: CircularProgressIndicator(),
