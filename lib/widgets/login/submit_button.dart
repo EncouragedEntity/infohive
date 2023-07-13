@@ -29,7 +29,7 @@ Widget submitButton(BuildContext context, {required VoidCallback onTap}) {
       ),
       child: const Text(
         'Login',
-        style: TextStyle(fontSize: 20, color: Color.fromARGB(232, 255, 255, 255)),
+        style: TextStyle(fontSize: 20, color: textWhite),
       ),
     ),
   );
