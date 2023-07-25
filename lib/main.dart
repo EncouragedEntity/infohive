@@ -5,6 +5,7 @@ import 'package:infohive/services/auth/bloc/auth_event.dart';
 import 'package:infohive/services/auth/bloc/auth_state.dart';
 import 'package:infohive/services/auth/firebase_auth_provider.dart';
 import 'package:infohive/views/articles/articles_view.dart';
+import 'package:infohive/views/auth/forgot_password_view.dart';
 import 'package:infohive/views/auth/login_view.dart';
 import 'package:infohive/views/auth/register_view.dart';
 
@@ -49,7 +50,7 @@ class HomePage extends StatelessWidget {
           return const LoginView();
         }
         if (state is AuthForgotPasswordState) {
-          //TODO go to forgotPasswordView
+          return const ForgotPasswordView();
         }
         return const Scaffold(
           body: Center(
