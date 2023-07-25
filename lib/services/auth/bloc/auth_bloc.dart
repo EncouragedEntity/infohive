@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:infohive/services/auth/auth_exception.dart';
 import 'package:infohive/services/auth/bloc/auth_event.dart';
 import 'package:infohive/services/auth/bloc/auth_state.dart';
 
@@ -108,6 +109,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       final email = event.email;
       if (email == null) return;
+
+      if (email.isEmpty) {
+        emit(AuthForgotPasswordState(
+            exception: EmptyMailException(),
+            hasSentEmail: false,
+            isLoading: false));
+      }
 
       emit(const AuthForgotPasswordState(
           exception: null, hasSentEmail: false, isLoading: true));
